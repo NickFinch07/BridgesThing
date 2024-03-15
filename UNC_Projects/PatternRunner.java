@@ -18,7 +18,7 @@ public class PatternRunner {
         bridges.setDescription("Using nested loops and conditionals to create grid patterns");
 
         // Instantiate a ColorGrid object with 14 rows and 20 columns
-        ColorGrid grid = new ColorGrid(9, 9);
+        ColorGrid grid = new ColorGrid(10, 10);
 
         // Instantiate an object of the Pattern class called pat
         Pattern pat = new Pattern();
@@ -29,19 +29,19 @@ public class PatternRunner {
 
         // CALL METHOD FOR PROBLEM 1: drawHorizontalStripes()  Make every other row a different color.
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
-        //pat.drawHorizontalStripes(grid, bridges, "red", "yellow");
+        pat.drawHorizontalStripes(grid, bridges, "red", "yellow");
 
         // CALL METHOD FOR PROBLEM 2: drawVerticalStripes() Make every other column a different color.
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
-        //pat.drawVerticalStripes(grid, bridges, "blue", "red");
+        pat.drawVerticalStripes(grid, bridges, "blue", "red");
 
         // CALL METHOD FOR PROBLEM 3: drawCheckerboard()  Create a checkerboard pattern
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
-        //pat.drawCheckerboard(grid, bridges, "orange", "black");
+        pat.drawCheckerboard(grid, bridges, "orange", "black");
 
         // CALL METHOD FOR PROBLEM 4: drawBorder()  Make all the border cells one color and all the interior cells another color
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
-        //pat.drawBorder(grid, bridges, "yellow", "blue");
+        pat.drawBorder(grid, bridges, "yellow", "blue");
 
         // CALL METHOD FOR PROBLEM 5: drawX()  Make an “X” design
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
@@ -50,14 +50,14 @@ public class PatternRunner {
 
         // CALL METHOD FOR PROBLEM 6: drawDiagSplit() Along the "slope = -1 diagonal", split the grid, one color each side
         // Four arguments: your ColorGrid instance, your Bridges instance, color, color)
-        //pat.drawDiagSplit(grid, bridges, new Color("blue"), new Color("yellow"));
+        pat.drawDiagSplit(grid, bridges, "blue", "yellow");
 
         // CALL METHOD FOR PROBLEM 7: drawQuadrants()  Show the 4-quadrants in a different color for each.
         // If the ColorGrid has  an odd number of rows and an odd number of columns,
         // show the x and y axes in yet another color. Otherwise, the four quadrants will show
         // and the x and y axes will merely be suggested by the color changes
         // Six arguments: your ColorGrid instance, your Bridges instance, color, color, color, color)
-        // pat.drawQuadrants(grid, bridges, new Color("blue"), new Color("yellow"), new Color("green"), new Color("red"));
+        pat.drawQuadrants(grid, bridges, "blue", "yellow", "green", "red");
 
     } // end main method
 } // end class

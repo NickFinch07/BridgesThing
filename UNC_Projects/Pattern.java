@@ -93,31 +93,68 @@ public class Pattern
     }
 	// PROBLEM 5: method to draw X
     public void drawX(ColorGrid grid, Bridges bridges, String color1, String color2) throws RateLimitException, IOException {
-        int i = 0;
-        int j = grid.getHeight() - 1;
-        int k = grid.getWidth() - 1;
+        int a = 0;
+        int b = 0;
+        int c = grid.getWidth() - 1;
         for (int row = 0; row < grid.getHeight(); row++) {
-            j--;
-            k--;
-            i++;
             for (int col = 0; col < grid.getWidth(); col++) {
-                if (row == i || col == i || row == j || col == k) {
-                    grid.set(row, col, new Color(color1));
-                }
-                else {
-                    grid.set(row, col, new Color(color2));
-                }
+                grid.set(row, col, new Color(color2));
             }
+        }
+        for (int row = 0; row < grid.getHeight(); row++) {
+            grid.set(a, b, new Color(color1));
+            grid.set(a, c, new Color(color1));
+            a++;
+            b++;
+            c--;
         }
         bridges.setDataStructure(grid);
         bridges.visualize();
     }
 	// PROBLEM 6: method to draw diagonal split
-
+    public void drawDiagSplit(ColorGrid grid, Bridges bridges, String color1, String color2) throws RateLimitException, IOException {
+        for (int row = 0; row < grid.getHeight(); row++) {
+            for (int col = 0; col < grid.getWidth(); col++) {
+                grid.set(row, col, new Color(color2));
+            }
+        }
+        for (int col = grid.getWidth() - 1; col >= 0; col--) {
+            int i = 0;
+            for (int row = 0; row < grid.getHeight(); row++) {
+                if (col - i >= 0) {
+                    grid.set(row, grid.getWidth() - 1 - (col - i), new Color(color1));
+                }
+                i++;
+            }
+        }
+        bridges.setDataStructure(grid);
+        bridges.visualize();
+    }
 
 
 	// PROBLEM 7: method to draw 4 quadrants
-
-
-
+    public void drawQuadrants(ColorGrid grid, Bridges bridges, String color1, String color2, String color3, String color4) throws RateLimitException, IOException {
+        for (int row = 0; row < (grid.getHeight() / 2); row++) {
+            for (int col = 0; col < (grid.getWidth() / 2); col++) {
+                grid.set(row, col, new Color(color1));
+            }
+        }
+        for (int row = grid.getHeight()-1; row > (grid.getHeight() / 2 - 1); row--) {
+            for (int col = 0; col < (grid.getWidth() / 2); col++) {
+                grid.set(row, col, new Color(color2));
+            }
+        }
+        for (int row = grid.getHeight() - 1; row > (grid.getHeight() / 2 - 1); row--) {
+            for (int col = grid.getWidth() - 1; col > (grid.getWidth() / 2 - 1); col--) {
+                grid.set(row, col, new Color(color3));
+            }
+        }
+        for (int row = 0; row < (grid.getHeight() / 2); row++) {
+            for (int col = grid.getWidth() - 1; col > (grid.getWidth() / 2 - 1); col--) {
+                grid.set(row, col, new Color(color4));
+            }
+        }
+        bridges.setDataStructure(grid);
+        bridges.visualize();
+    }
 }  // end class
